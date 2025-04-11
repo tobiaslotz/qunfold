@@ -72,6 +72,10 @@ def minimize(
   except (DerivativeError, ValueError):
     traceback.print_exc()
     opt = state.get_state()
+    print(f"JAC = {jac}")
+    print(f"HESSIAN = {hess}")
+    print(f"{x0 =}")
+    print(f"fun_l(x0) = {fun_l(x0)}")
   return Result(_np_softmax(opt.x), opt.nit, opt.message)
 
 def class_prevalences(y, n_classes=None):
